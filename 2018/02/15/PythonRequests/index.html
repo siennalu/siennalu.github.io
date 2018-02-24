@@ -79,15 +79,18 @@
 
 
 
+<meta name="description" content="Using Requests with Python">
 <meta name="keywords" content="Requests,JSON">
 <meta property="og:type" content="article">
 <meta property="og:title" content="PythonRequests">
 <meta property="og:url" content="http://yoursite.com/2018/02/15/PythonRequests/index.html">
 <meta property="og:site_name" content="MyLearning">
+<meta property="og:description" content="Using Requests with Python">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-02-15T09:36:41.983Z">
+<meta property="og:updated_time" content="2018-02-24T08:43:52.465Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PythonRequests">
+<meta name="twitter:description" content="Using Requests with Python">
 
 
 
@@ -339,7 +342,22 @@
       
 
       
-        
+        <div align="center"><br>Using Requests with Python<br></div>
+
+<a id="more"></a>
+<h3 id="Install-Python-package"><a href="#Install-Python-package" class="headerlink" title="Install Python package"></a>Install Python package</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ pip install requests</span><br><span class="line">$ pip install BeautifulSoup4</span><br></pre></td></tr></table></figure>
+<p>Then lets check if all the packages already installed<br>(Installed python first then enter to Python edit mode)</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; import requests</span><br><span class="line">&gt;&gt;&gt; from bs4 import BeautifulSoup4</span><br></pre></td></tr></table></figure>
+<h3 id="Using-Python-Requests-to-send-data"><a href="#Using-Python-Requests-to-send-data" class="headerlink" title="Using Python Requests to send data"></a>Using Python Requests to send data</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; import requests</span><br><span class="line">&gt;&gt;&gt; r = requests.get(<span class="string">"uml"</span>)</span><br><span class="line">&gt;&gt;&gt; r = requests.post(<span class="string">"uml"</span>, data)</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure>
+<p>Check if response is correct and print the message out:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; r.status_code</span><br><span class="line">&gt;&gt;&gt; r.text</span><br><span class="line">&gt;&gt;&gt; r.json()</span><br></pre></td></tr></table></figure></p>
+<h3 id="Give-it-a-shot"><a href="#Give-it-a-shot" class="headerlink" title="Give it a shot"></a>Give it a shot</h3><p>Set up kind of a test user account on github and then we use the requests library to set up a new repo(respositories).</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; import json</span><br><span class="line">&gt;&gt;&gt; data = json.dumps(&#123;<span class="string">'name'</span>:<span class="string">'testrepo'</span>, <span class="string">'description'</span>:<span class="string">'this is a Python test'</span>&#125;)</span><br></pre></td></tr></table></figure>
+<p>We gonna send a request using request library and set new repository.<br>Called it <em>testrepo</em> and description is to say <em>“this is a Python test”</em></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; g = requests.post(<span class="string">'http://api.github.com/user/repos'</span>, data = data, auth = (username,password))</span><br></pre></td></tr></table></figure>
+<p>The next thing we gonna do is to send a request to github.<br>We wanna sending data, so we need to do a post request.<br>Authentication is your username, get a tuple containing your username and password.<br>Then check the status code about 200 or 201.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; g.json()</span><br><span class="line">&gt;&gt;&gt; g.json()[name]</span><br></pre></td></tr></table></figure>
+<p>We sent it the name that we wanted to give our repo. Lets check the name we get back.<br>Then check that by going to the actual github page.(Refresh and now we have a repo called testrepo.)</p>
+
       
     </div>
     
@@ -431,8 +449,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -521,6 +548,22 @@
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Install-Python-package"><span class="nav-number">1.</span> <span class="nav-text">Install Python package</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Using-Python-Requests-to-send-data"><span class="nav-number">2.</span> <span class="nav-text">Using Python Requests to send data</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Give-it-a-shot"><span class="nav-number">3.</span> <span class="nav-text">Give it a shot</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
 
@@ -544,15 +587,9 @@
 </div>
 
 
-  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
 
 
 
-  <span class="post-meta-divider">|</span>
-
-
-
-  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
 
 
 
