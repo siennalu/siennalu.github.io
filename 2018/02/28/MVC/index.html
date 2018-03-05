@@ -89,7 +89,10 @@
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http://yoursite.com/images/Solution.png">
 <meta property="og:image" content="http://yoursite.com/images/global.png">
-<meta property="og:updated_time" content="2018-03-02T07:01:18.072Z">
+<meta property="og:image" content="http://yoursite.com/images/RC.png">
+<meta property="og:image" content="http://yoursite.com/images/contr.png">
+<meta property="og:image" content="http://yoursite.com/images/views.png">
+<meta property="og:updated_time" content="2018-03-05T10:15:05.703Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MVC Applcation">
 <meta name="twitter:description" content="Overview of different part of an ASP.NET MVC application">
@@ -358,6 +361,19 @@
 <div align="center"><br><img src="/images/global.png" width="90%" height="90%" align="center/"><br></div>
 
 <p>We can notice that there a method called RegisterRoutes, it set up something called a <strong>route table</strong> for MVC application. What the route tables does is, <strong>it’s responsible for mapping URLs to particular controller actions.</strong></p>
+<p>AND we’ll notice that they give us a default route inside, we need to go to App_Start folder, then hit the RouterConfig.cs, its actually named Default.</p>
+<div align="center"><br><img src="/images/RC.png" width="90%" height="90%" align="center/"><br></div>
+
+
+<p>So by default they’re going to assume that if you type in your URL, is going to have 3 parts. The first part is going to be the name of the <strong>controller</strong>, then <strong>action</strong> and <strong>ID</strong>. and they also gives us default values for these 3 parts.<br>So if we don’t type in the name of a controller, it’s going to default to Home, Index and empty screen.</p>
+<h3 id="What-is-controller"><a href="#What-is-controller" class="headerlink" title="What is controller?"></a>What is controller?</h3><p>In the controllers folder, we opened up and get the one controller by defaults in our sample application, the Home controller.<br>And we notice that it has functions inside of it. Index and About.</p>
+<div align="center"><br><img src="/images/contr.png" width="90%" height="90%" align="center/"><br></div>
+
+<h3 id="What-is-View"><a href="#What-is-View" class="headerlink" title="What is View?"></a>What is View?</h3><p>Controller action retruns a view back from it.<br>The name of the view is inferred from the name of the controller action.<br>In RouterConfi.cs, there is a view called index, because that’s the name of the action, in a folder called home, because its the name of controller.<br>Expand out the view folder, we notice that there is a home subfolder that corresponds to the name of the controller.<br>Inside the home subfolder, we have 2 views called about and index, because we’re returning a view both from the index action and from the about action.<br>We opened up the view and we notice that it’s just HTML.it contains all of the content that you want to display to the user.</p>
+<div align="center"><br><img src="/images/views.png" width="90%" height="90%" align="center/"><br></div>
+
+<h3 id="What-is-Model"><a href="#What-is-Model" class="headerlink" title="What is Model?"></a>What is Model?</h3><p>The idea of mode is, the model is supposed to consist of all your logic,all your application logic, all your database access logic… so the model consisits of a bunch of classes.<br>In controller, they should only contain the minimum amount of logic to be able to decide which view to show or what kind of response to perform in response to a browser request.<br>So you put all of your application logic, all of your data access stuff inside models folder. Then we can call out to those classes within controller method.<br><strong>All the application logic in general should be pushed over into Models.</strong></p>
+<p>Summary:<br>1.Controller is responsible for doing is firing off some logic when a request is made from a browser.<br>2.A view contains the HTML mark up and contents that is return to the browser.<br>3.The model is consist of all the application logic.</p>
 
       
     </div>
@@ -560,7 +576,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#What-is-MVC-application"><span class="nav-number">1.</span> <span class="nav-text">What is MVC application?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#How-does-a-URL-mapped-over-ASP-NET-application"><span class="nav-number">2.</span> <span class="nav-text">How does a URL mapped over ASP.NET application?</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#What-is-MVC-application"><span class="nav-number">1.</span> <span class="nav-text">What is MVC application?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#How-does-a-URL-mapped-over-ASP-NET-application"><span class="nav-number">2.</span> <span class="nav-text">How does a URL mapped over ASP.NET application?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#What-is-controller"><span class="nav-number">3.</span> <span class="nav-text">What is controller?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#What-is-View"><span class="nav-number">4.</span> <span class="nav-text">What is View?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#What-is-Model"><span class="nav-number">5.</span> <span class="nav-text">What is Model?</span></a></li></ol></div>
             
 
           </div>
